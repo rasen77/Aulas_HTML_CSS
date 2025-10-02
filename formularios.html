@@ -6,52 +6,71 @@
   <title>formularios</title>
 </head>
 <body>
-  <h1>formularios</h1>
-
-  <form id="meuFormulario">
-    <!-- Campo Nome -->
-    <label for="nome">Nome</label>
-    <input type="text" id="nome" name="nome" placeholder="Inserir Nome">
+  <form id="formCadastro">
+ <h1>formCadastro</h1>
+  
+    <!-- Nome -->
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
     <br><br>
   
-    <!-- Campo Idade -->
-    <label for="idade">Idade</label>
-    <input type="number" id="idade" name="idade" min="1"placeholder="Inserir idade">
+    <!-- E-mail -->
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
     <br><br>
   
-    <!-- Campo Senha -->
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" name="senha"placeholder="Inserir senha">
+    <!-- Idade -->
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" min="1" max="120" placeholder="Digite sua idade">
     <br><br>
   
-    <!-- Botão Enviar -->
+    <!-- Gênero -->
+    <p>Gênero:</p>
+    <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
+    <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
+    <br><br>
+  
+    <!-- Mensagem -->
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" rows="4" cols="30" placeholder="Digite sua mensagem"></textarea>
+    <br><br>
+  
+    <!-- Botão -->
     <input type="submit" value="Enviar">
   </form>
   
+  <!-- Local onde vamos mostrar os dados -->
+  <div id="resultado"></div>
+  
+  
   <!-- Aqui entra o JavaScript -->
   <script>
-    // Captura o formulário pelo ID
-    const form = document.getElementById("meuFormulario");
+    // Pega o formulário e a div de resultado
+    const form = document.getElementById("formCadastro");
+    const resultado = document.getElementById("resultado");
   
-    // Escuta o evento de envio
+    // Escuta o envio do formulário
     form.addEventListener("submit", function(event) {
-      event.preventDefault(); // impede o envio padrão (não recarrega a página)
+      event.preventDefault(); // evita que a página recarregue
   
       // Pega os valores dos campos
       const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
       const idade = document.getElementById("idade").value;
-      const senha = document.getElementById("senha").value;
+      const genero = document.querySelector("input[name='genero']:checked")?.value || "Não informado";
+      const mensagem = document.getElementById("mensagem").value;
   
-      // Exibe no console
-      console.log("Nome:", nome);
-      console.log("Idade:", idade);
-      console.log("Senha:", senha);
-  
-      // Exibe na tela em forma de alerta
-      alert(`Nome: ${nome}\nIdade: ${idade}\nSenha: ${senha}`);
+      // Mostra os dados dentro da div resultado
+      resultado.innerHTML = `
+        <h3>Dados recebidos:</h3>
+        <p><strong>Nome:</strong> ${nome}</p>
+        <p><strong>E-mail:</strong> ${email}</p>
+        <p><strong>Idade:</strong> ${idade}</p>
+        <p><strong>Gênero:</strong> ${genero}</p>
+        <p><strong>Mensagem:</strong> ${mensagem}</p>
+      `;
     });
-  </script>
-  
+  </script> 
 </form>
 </body>
 </html>
