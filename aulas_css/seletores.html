@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Seletores</title>
+   
+</head><style>
+  /* Seletor por TAG (afeta todas as tags p da página) */
+p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Seletor por CLASSE (afeta apenas elementos com class="destaque") */
+.destaque {
+    color: #0059ff;
+    font-weight: bold;
+    background-color: #e6f0ff;
+    padding: 5px;
+}
+
+/* Seletor por ID (afeta apenas o elemento com id="titulo-principal") */
+#titulo-principal {
+    text-align: center;
+    color: #008000;
+}
+
+/* Outro seletor por ID */
+#caixa {
+    border: 2px solid #008000;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f3fff3;
+}
+
+</style>
+<body>
+
+    <h1 id="titulo-principal">Bem-vindo ao Exemplo de Seletores</h1>
+
+    <p>Este parágrafo usa o seletor por <strong>tag</strong>.</p>
+
+    <p class="destaque">Este parágrafo usa o seletor por <strong>classe</strong>.</p>
+
+    <p class="destaque">Outro parágrafo com a mesma classe.</p>
+
+    <div id="caixa">
+        <h2>Seletor por ID</h2>
+        <p>Este texto está dentro de uma div com ID.</p>
+    </div>
+
+</body>
+</html>
