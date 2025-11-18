@@ -6,7 +6,7 @@ body{
   
 }
 .container{ 
-  height: 45rem;
+  height: 80vh;
 
 display: flex;
 justify-content: center;
