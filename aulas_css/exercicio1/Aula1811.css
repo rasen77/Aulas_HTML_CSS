@@ -54,5 +54,6 @@
 
     .animal:hover { 
       background-color:#808080 ;
-
+      transform: scale(1.00);
+      box-shadow: 0 0 18px rgb(32, 48, 69)
     }
